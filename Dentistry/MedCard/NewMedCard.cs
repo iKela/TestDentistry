@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dentistry.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -120,7 +121,7 @@ namespace Dentistry.MedCard
 
         }
 
-        private void SaveToWordFile()
+        public void SaveToWordFile()
         {
             string[] arr = {txtName.Text, txtDateOfBirthday.Text, txtNumber.Text,txtAddress.Text,dtpDateOfCreating.Text,txtGender.Text,
                 txtDiagnosis.Text,txtComplaints.Text,txtDoneDiseases.Text,txtCurrentDisease.Text,txtSurvayData.Text,txtBite.Text,
@@ -130,6 +131,7 @@ namespace Dentistry.MedCard
             General.NewMedCard general = new General.NewMedCard(arr);
             general.SaveToWordFile();
             
+
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -139,6 +141,14 @@ namespace Dentistry.MedCard
         private void btnAdd_Click(object sender, EventArgs e)
         {
             SaveToWordFile();
+            using (var name = new DentistryContext())
+            {
+                var stud = new Entity.MedCard() { NamePatient = txtName.Text };
+                name.MedCards.Add(stud);
+                name.SaveChanges();
+            }
+            
+            MessageBox.Show("Виконано!");
         }
     }
 }
