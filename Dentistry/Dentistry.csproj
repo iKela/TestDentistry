@@ -107,7 +107,8 @@
     <Compile Include="Entity\ModelFirs.cs" />
     <Compile Include="Entity\Policies.cs" />
     <Compile Include="Entity\Users.cs" />
-    <Compile Include="General\General.cs" />
+    <Compile Include="General\TextCheck.cs" />
+    <Compile Include="General\WordSave.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
