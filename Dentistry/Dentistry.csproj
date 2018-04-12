@@ -114,6 +114,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedCard\EditMedCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedCard\EditMedCard.Designer.cs">
+      <DependentUpon>EditMedCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="MedCard\NewMedCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedCard\EditMedCard.resx">
+      <DependentUpon>EditMedCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedCard\NewMedCard.resx">
       <DependentUpon>NewMedCard.cs</DependentUpon>
