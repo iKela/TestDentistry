@@ -1,4 +1,5 @@
-﻿using Dentistry.Entity;
+﻿
+using Dentistry.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -141,13 +142,12 @@ namespace Dentistry.MedCard
         private void btnAdd_Click(object sender, EventArgs e)
         {
             SaveToWordFile();
-            using (var name = new DentistryContext())
-            {
-                var stud = new Entity.MedCard() { NamePatient = txtName.Text };
-                name.MedCards.Add(stud);
-                name.SaveChanges();
-            }
-            
+           using (var name = new ModelFirs())
+           {
+               var stud = new MedCards { NamePatient = txtName.Text };
+               name.MedCards.Add(stud);
+               name.SaveChanges();
+           }            
             MessageBox.Show("Виконано!");
         }
     }
