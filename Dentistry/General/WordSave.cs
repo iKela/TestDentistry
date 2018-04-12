@@ -110,11 +110,12 @@ namespace Dentistry.General
             text = str;
         }
 
-        public void SaveToWordFile()
+        public bool SaveToWordFile()
         {
             try
             {
                 rewriteInfo(@Properties.Settings.Default.NewMedCardFile);
+                return true;
             }
             catch
             {
@@ -140,10 +141,12 @@ namespace Dentistry.General
                         {
                             MessageBox.Show("Успішно збережено!");
                             rewriteInfo(@Properties.Settings.Default.ExistMedCardFile);
+                            return true;
                         }
                     }
                 }
             }
+            return false;
         }
 
         private void rewriteInfo(string way)
@@ -187,7 +190,6 @@ namespace Dentistry.General
 
             wordDocument.SaveAs(@Properties.Settings.Default.Name + "\\" + text[0] + ".docx");
             MessageBox.Show("Успішно експортовано!!!");
-
             wordApp.ActiveDocument.Close();
             wordApp.Quit();
         }

@@ -13,11 +13,27 @@ namespace Dentistry.MedCard
 {
     public partial class NewMedCard : Form
     {
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
+        General.TextCheck textCheck = new General.TextCheck();
+
         public NewMedCard()
         {
             InitializeComponent();
             SetTheme();
         }
+        
         private void SetTheme()
         {
             List<Button> buttons = new List<Button> { btnAdd, btnExit,btn1, btn2, btn3, btn4, btn5, btn6, };
@@ -149,6 +165,21 @@ namespace Dentistry.MedCard
             }
             
             MessageBox.Show("Виконано!");
+        }       
+
+        private void txtGender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textCheck.Gender(sender, e, txtGender.Text);
+        }
+
+        private void txtAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textCheck.AddressEnter(sender, e);
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textCheck.OnlyCyrillic(sender, e);
         }
     }
 }

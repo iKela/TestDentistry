@@ -22,5 +22,11 @@ namespace Dentistry
             MedCard.NewMedCard newForm = new MedCard.NewMedCard();
             newForm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MedCard.EditMedCard newForm = new MedCard.EditMedCard();
+            newForm.Show();
+        }
     }
 }

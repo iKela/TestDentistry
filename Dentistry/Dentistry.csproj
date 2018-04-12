@@ -101,7 +101,8 @@
     <Compile Include="Design\ChangeTheme.cs" />
     <Compile Include="Entity\DataStoma.cs" />
     <Compile Include="Entity\DbContext.cs" />
-    <Compile Include="General\General.cs" />
+    <Compile Include="General\TextCheck.cs" />
+    <Compile Include="General\WordSave.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

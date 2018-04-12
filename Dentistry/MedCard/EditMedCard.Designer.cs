@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMedCard));
-            this.panelZ3 = new PanelZ.PanelZ();
-            this.btnEdit = new Custom_Controls_in_CS.ButtonZ();
-            this.txtGender = new System.Windows.Forms.MaskedTextBox();
             this.lblNum = new System.Windows.Forms.Label();
             this.lblNumberCard = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
@@ -143,13 +140,15 @@
             this.btn4 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.cmbPacient = new System.Windows.Forms.ComboBox();
-            this.txtDateOfBirthday = new System.Windows.Forms.TextBox();
             this.txtNumber = new System.Windows.Forms.MaskedTextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.dtpDateOfCreating = new System.Windows.Forms.DateTimePicker();
+            this.txtDateOfBirthday = new System.Windows.Forms.MaskedTextBox();
             this.panelZ2 = new PanelZ.PanelZ();
             this.btnExit = new Custom_Controls_in_CS.ButtonZ();
-            this.panelZ3.SuspendLayout();
+            this.panelZ3 = new PanelZ.PanelZ();
+            this.btnEdit = new Custom_Controls_in_CS.ButtonZ();
+            this.txtGender = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tbInfo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -158,63 +157,8 @@
             this.tpSurvayPlan.SuspendLayout();
             this.tpTreatmentPlan.SuspendLayout();
             this.panelZ2.SuspendLayout();
+            this.panelZ3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelZ3
-            // 
-            this.panelZ3.Controls.Add(this.btnEdit);
-            this.panelZ3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelZ3.EndColor = System.Drawing.Color.Black;
-            this.panelZ3.GradientAngle = 90;
-            this.panelZ3.Location = new System.Drawing.Point(0, 713);
-            this.panelZ3.Name = "panelZ3";
-            this.panelZ3.Size = new System.Drawing.Size(573, 40);
-            this.panelZ3.StartColor = System.Drawing.Color.White;
-            this.panelZ3.TabIndex = 364;
-            this.panelZ3.Transparent1 = 150;
-            this.panelZ3.Transparent2 = 150;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderWidth = 2;
-            this.btnEdit.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.RoundRect;
-            this.btnEdit.ButtonText = "Редагувати";
-            this.btnEdit.EndColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.GradientAngle = 90;
-            this.btnEdit.Location = new System.Drawing.Point(236, 0);
-            this.btnEdit.MouseClickColor1 = System.Drawing.Color.Yellow;
-            this.btnEdit.MouseClickColor2 = System.Drawing.Color.Red;
-            this.btnEdit.MouseHoverColor1 = System.Drawing.Color.Turquoise;
-            this.btnEdit.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.ShowButtontext = true;
-            this.btnEdit.Size = new System.Drawing.Size(100, 40);
-            this.btnEdit.StartColor = System.Drawing.Color.Black;
-            this.btnEdit.TabIndex = 323;
-            this.btnEdit.TextLocation_X = 10;
-            this.btnEdit.TextLocation_Y = 10;
-            this.btnEdit.Transparent1 = 50;
-            this.btnEdit.Transparent2 = 250;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // txtGender
-            // 
-            this.txtGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtGender.Location = new System.Drawing.Point(182, 219);
-            this.txtGender.Mask = "(0)";
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(28, 26);
-            this.txtGender.TabIndex = 347;
-            this.txtGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNum
             // 
@@ -634,7 +578,7 @@
             this.tbTeeth.Location = new System.Drawing.Point(4, 28);
             this.tbTeeth.Name = "tbTeeth";
             this.tbTeeth.Padding = new System.Windows.Forms.Padding(3);
-            this.tbTeeth.Size = new System.Drawing.Size(538, 366);
+            this.tbTeeth.Size = new System.Drawing.Size(538, 421);
             this.tbTeeth.TabIndex = 1;
             this.tbTeeth.Text = "Зуби";
             this.tbTeeth.UseVisualStyleBackColor = true;
@@ -1230,7 +1174,7 @@
             this.tpSurvayPlan.Location = new System.Drawing.Point(4, 28);
             this.tpSurvayPlan.Name = "tpSurvayPlan";
             this.tpSurvayPlan.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSurvayPlan.Size = new System.Drawing.Size(538, 366);
+            this.tpSurvayPlan.Size = new System.Drawing.Size(538, 421);
             this.tpSurvayPlan.TabIndex = 2;
             this.tpSurvayPlan.Text = "План обстеження";
             this.tpSurvayPlan.UseVisualStyleBackColor = true;
@@ -1251,7 +1195,7 @@
             this.tpTreatmentPlan.Location = new System.Drawing.Point(4, 28);
             this.tpTreatmentPlan.Name = "tpTreatmentPlan";
             this.tpTreatmentPlan.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTreatmentPlan.Size = new System.Drawing.Size(538, 366);
+            this.tpTreatmentPlan.Size = new System.Drawing.Size(538, 421);
             this.tpTreatmentPlan.TabIndex = 3;
             this.tpTreatmentPlan.Text = "План лікування";
             this.tpTreatmentPlan.UseVisualStyleBackColor = true;
@@ -1384,19 +1328,14 @@
             // 
             // cmbPacient
             // 
+            this.cmbPacient.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.cmbPacient.FormattingEnabled = true;
-            this.cmbPacient.Location = new System.Drawing.Point(182, 53);
+            this.cmbPacient.Location = new System.Drawing.Point(182, 50);
             this.cmbPacient.Name = "cmbPacient";
-            this.cmbPacient.Size = new System.Drawing.Size(310, 21);
+            this.cmbPacient.Size = new System.Drawing.Size(310, 27);
             this.cmbPacient.TabIndex = 342;
-            // 
-            // txtDateOfBirthday
-            // 
-            this.txtDateOfBirthday.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtDateOfBirthday.Location = new System.Drawing.Point(182, 85);
-            this.txtDateOfBirthday.Name = "txtDateOfBirthday";
-            this.txtDateOfBirthday.Size = new System.Drawing.Size(311, 26);
-            this.txtDateOfBirthday.TabIndex = 343;
+            this.cmbPacient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbPacient_KeyDown);
+            this.cmbPacient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPacient_KeyPress);
             // 
             // txtNumber
             // 
@@ -1414,6 +1353,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(311, 26);
             this.txtAddress.TabIndex = 345;
+            this.txtAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddress_KeyPress);
             // 
             // dtpDateOfCreating
             // 
@@ -1422,6 +1362,16 @@
             this.dtpDateOfCreating.Name = "dtpDateOfCreating";
             this.dtpDateOfCreating.Size = new System.Drawing.Size(173, 26);
             this.dtpDateOfCreating.TabIndex = 346;
+            // 
+            // txtDateOfBirthday
+            // 
+            this.txtDateOfBirthday.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtDateOfBirthday.Location = new System.Drawing.Point(182, 83);
+            this.txtDateOfBirthday.Mask = "00/00/0000";
+            this.txtDateOfBirthday.Name = "txtDateOfBirthday";
+            this.txtDateOfBirthday.Size = new System.Drawing.Size(312, 26);
+            this.txtDateOfBirthday.TabIndex = 366;
+            this.txtDateOfBirthday.ValidatingType = typeof(System.DateTime);
             // 
             // panelZ2
             // 
@@ -1468,15 +1418,72 @@
             this.btnExit.Transparent1 = 250;
             this.btnExit.Transparent2 = 250;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panelZ3
+            // 
+            this.panelZ3.Controls.Add(this.btnEdit);
+            this.panelZ3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelZ3.EndColor = System.Drawing.Color.Black;
+            this.panelZ3.GradientAngle = 90;
+            this.panelZ3.Location = new System.Drawing.Point(0, 713);
+            this.panelZ3.Name = "panelZ3";
+            this.panelZ3.Size = new System.Drawing.Size(573, 40);
+            this.panelZ3.StartColor = System.Drawing.Color.White;
+            this.panelZ3.TabIndex = 364;
+            this.panelZ3.Transparent1 = 150;
+            this.panelZ3.Transparent2 = 150;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderWidth = 2;
+            this.btnEdit.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.RoundRect;
+            this.btnEdit.ButtonText = "Редагувати";
+            this.btnEdit.EndColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.GradientAngle = 90;
+            this.btnEdit.Location = new System.Drawing.Point(236, 0);
+            this.btnEdit.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnEdit.MouseClickColor2 = System.Drawing.Color.LimeGreen;
+            this.btnEdit.MouseHoverColor1 = System.Drawing.Color.Transparent;
+            this.btnEdit.MouseHoverColor2 = System.Drawing.Color.Transparent;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ShowButtontext = true;
+            this.btnEdit.Size = new System.Drawing.Size(100, 40);
+            this.btnEdit.StartColor = System.Drawing.Color.Black;
+            this.btnEdit.TabIndex = 323;
+            this.btnEdit.TextLocation_X = 10;
+            this.btnEdit.TextLocation_Y = 10;
+            this.btnEdit.Transparent1 = 50;
+            this.btnEdit.Transparent2 = 250;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // txtGender
+            // 
+            this.txtGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtGender.Location = new System.Drawing.Point(182, 219);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.Size = new System.Drawing.Size(28, 26);
+            this.txtGender.TabIndex = 367;
+            this.txtGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGender_KeyPress);
             // 
             // EditMedCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 753);
+            this.Controls.Add(this.txtGender);
+            this.Controls.Add(this.txtDateOfBirthday);
             this.Controls.Add(this.panelZ2);
             this.Controls.Add(this.panelZ3);
-            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.lblNum);
             this.Controls.Add(this.lblNumberCard);
             this.Controls.Add(this.lblPhoneNumber);
@@ -1494,7 +1501,6 @@
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.cmbPacient);
-            this.Controls.Add(this.txtDateOfBirthday);
             this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.dtpDateOfCreating);
@@ -1503,7 +1509,6 @@
             this.MinimumSize = new System.Drawing.Size(573, 753);
             this.Name = "EditMedCard";
             this.Text = "EditMedCard";
-            this.panelZ3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tbInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1516,6 +1521,7 @@
             this.tpTreatmentPlan.ResumeLayout(false);
             this.tpTreatmentPlan.PerformLayout();
             this.panelZ2.ResumeLayout(false);
+            this.panelZ3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1525,7 +1531,6 @@
 
         private PanelZ.PanelZ panelZ3;
         private Custom_Controls_in_CS.ButtonZ btnEdit;
-        private System.Windows.Forms.MaskedTextBox txtGender;
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.Label lblNumberCard;
         private System.Windows.Forms.Label lblPhoneNumber;
@@ -1637,11 +1642,12 @@
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.ComboBox cmbPacient;
-        private System.Windows.Forms.TextBox txtDateOfBirthday;
         private System.Windows.Forms.MaskedTextBox txtNumber;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.DateTimePicker dtpDateOfCreating;
         private PanelZ.PanelZ panelZ2;
         private Custom_Controls_in_CS.ButtonZ btnExit;
+        private System.Windows.Forms.MaskedTextBox txtDateOfBirthday;
+        private System.Windows.Forms.TextBox txtGender;
     }
 }
