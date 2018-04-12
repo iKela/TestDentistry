@@ -141,13 +141,20 @@ namespace Dentistry.MedCard
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            SaveToWordFile();
            using (var name = new ModelFirs())
            {
-               var stud = new MedCards { NamePatient = txtName.Text };
-               name.MedCards.Add(stud);
+               var variables = new MedCards { NamePatient = txtName.Text, Gender = txtGender.Text,
+                  DateOfBirth = txtDateOfBirthday.Text, NumberPhone = txtNumber.Text, Adress=txtAddress.Text,
+                  dateOfCreatingMC = dtpDateOfCreating.Text, Diagnosis= txtDiagnosis.Text,
+                  Complaint =txtComplaints.Text,DoneDiseases= txtDoneDiseases.Text, CurrentDiseas= txtCurrentDisease.Text,
+                  SurvayData= txtSurvayData.Text, Bite= txtBite.Text, MouthState= txtMouthState.Text,
+                  XReyDate= txtXReyData.Text,ColorVita= txtColorVita.Text, DateOfLessons= txtDateOfLessons.Text,
+                  ControlDate= txtControlDate.Text, SurvayPlan= txtSurvayPlan.Text,  TreatmentPlan= txtTreatmentPlan.Text
+               };
+               name.MedCards.Add(variables);
                name.SaveChanges();
            }            
+            SaveToWordFile();
             MessageBox.Show("Виконано!");
         }
     }
