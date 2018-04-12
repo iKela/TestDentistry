@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMedCard));
-            this.txtGender = new System.Windows.Forms.MaskedTextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btn1 = new System.Windows.Forms.Button();
             this.lblGender = new System.Windows.Forms.Label();
@@ -138,7 +137,6 @@
             this.btn3 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
-            this.txtDateOfBirthday = new System.Windows.Forms.TextBox();
             this.txtNumber = new System.Windows.Forms.MaskedTextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -147,6 +145,8 @@
             this.btnExit = new Custom_Controls_in_CS.ButtonZ();
             this.pnlBot = new PanelZ.PanelZ();
             this.btnAdd = new Custom_Controls_in_CS.ButtonZ();
+            this.txtGender = new System.Windows.Forms.TextBox();
+            this.txtDateOfBirthday = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tbInfo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -157,16 +157,6 @@
             this.panelZ2.SuspendLayout();
             this.pnlBot.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtGender
-            // 
-            this.txtGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtGender.Location = new System.Drawing.Point(180, 215);
-            this.txtGender.Mask = "(0)";
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(28, 26);
-            this.txtGender.TabIndex = 344;
-            this.txtGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblName
             // 
@@ -1299,14 +1289,6 @@
             this.btn2.TabIndex = 355;
             this.btn2.UseVisualStyleBackColor = false;
             // 
-            // txtDateOfBirthday
-            // 
-            this.txtDateOfBirthday.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtDateOfBirthday.Location = new System.Drawing.Point(179, 83);
-            this.txtDateOfBirthday.Name = "txtDateOfBirthday";
-            this.txtDateOfBirthday.Size = new System.Drawing.Size(311, 26);
-            this.txtDateOfBirthday.TabIndex = 340;
-            // 
             // txtNumber
             // 
             this.txtNumber.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -1323,6 +1305,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(311, 26);
             this.txtAddress.TabIndex = 342;
+            this.txtAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddress_KeyPress);
             // 
             // txtName
             // 
@@ -1331,6 +1314,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(311, 26);
             this.txtName.TabIndex = 339;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // dtpDateOfCreating
             // 
@@ -1433,14 +1417,34 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // txtGender
+            // 
+            this.txtGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtGender.Location = new System.Drawing.Point(179, 215);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.Size = new System.Drawing.Size(28, 26);
+            this.txtGender.TabIndex = 368;
+            this.txtGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGender_KeyPress);
+            // 
+            // txtDateOfBirthday
+            // 
+            this.txtDateOfBirthday.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtDateOfBirthday.Location = new System.Drawing.Point(179, 84);
+            this.txtDateOfBirthday.Mask = "00/00/0000";
+            this.txtDateOfBirthday.Name = "txtDateOfBirthday";
+            this.txtDateOfBirthday.Size = new System.Drawing.Size(312, 26);
+            this.txtDateOfBirthday.TabIndex = 369;
+            this.txtDateOfBirthday.ValidatingType = typeof(System.DateTime);
+            // 
             // NewMedCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 753);
+            this.Controls.Add(this.txtDateOfBirthday);
+            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.panelZ2);
             this.Controls.Add(this.pnlBot);
-            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.lblGender);
@@ -1455,7 +1459,6 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn2);
-            this.Controls.Add(this.txtDateOfBirthday);
             this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtName);
@@ -1464,6 +1467,7 @@
             this.MaximumSize = new System.Drawing.Size(573, 753);
             this.MinimumSize = new System.Drawing.Size(573, 753);
             this.Name = "NewMedCard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewMedCard";
             this.tabControl1.ResumeLayout(false);
             this.tbInfo.ResumeLayout(false);
@@ -1484,8 +1488,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox txtGender;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Label lblGender;
@@ -1594,7 +1596,6 @@
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.TextBox txtDateOfBirthday;
         private System.Windows.Forms.MaskedTextBox txtNumber;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
@@ -1603,5 +1604,7 @@
         private Custom_Controls_in_CS.ButtonZ btnAdd;
         private PanelZ.PanelZ panelZ2;
         private Custom_Controls_in_CS.ButtonZ btnExit;
+        private System.Windows.Forms.TextBox txtGender;
+        private System.Windows.Forms.MaskedTextBox txtDateOfBirthday;
     }
 }

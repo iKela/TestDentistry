@@ -12,6 +12,21 @@ namespace Dentistry.MedCard
 {
     public partial class EditMedCard : Form
     {
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
+        General.TextCheck textCheck = new General.TextCheck();
+
         public EditMedCard()
         {
             InitializeComponent();
@@ -24,7 +39,7 @@ namespace Dentistry.MedCard
             {
                 lblAddress, lblBirthday, lblDate,
                 lblGender, lblGenderType, lblName,
-                lblPhoneNumber
+                lblPhoneNumber, lblNumberCard, lblNum
             };
 
             switch (Properties.Settings.Default.Theme)
@@ -128,13 +143,58 @@ namespace Dentistry.MedCard
                 txtTreatmentPlan.Text};
 
             General.EditMedCard general = new General.EditMedCard(arr);
-            general.SaveToWordFile();
+            if(general.SaveToWordFile() == true)
+            {
+                ButtonClear();
+            }
 
         }
+        public void ButtonClear()
+        {
+            //The new functionality that have to clear all textboxes
+            Action<Control.ControlCollection> func = null;
 
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SaveToWordFile();
+        }
+        private void cmbPacient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textCheck.OnlyCyrillic(sender, e);
+        }
+
+        private void txtAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textCheck.AddressEnter(sender, e);
+        }
+
+        private void cmbPacient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && cmbPacient != null)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtGender_KeyPress(object sender, KeyPressEventArgs e)
+        {           
+            textCheck.Gender(sender, e, txtGender.Text);
         }
     }
 }
