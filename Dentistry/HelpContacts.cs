@@ -8,25 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dentistry
+namespace Stomatology
 {
-    public partial class Main : Form
+    public partial class HelpContacts : Form
     {
-        public Main()
+        public HelpContacts()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MedCard.NewMedCard newForm = new MedCard.NewMedCard();
-            newForm.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MedCard.EditMedCard newForm = new MedCard.EditMedCard();
-            newForm.Show();
+            this.Close();
         }
     }
 }
