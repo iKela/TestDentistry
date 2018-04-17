@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appoinment\NewAppoinment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appoinment\NewAppoinment.Designer.cs">
+      <DependentUpon>NewAppoinment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Design\AdditionalTools\ButtonZ.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Appoinment\NewAppoinment.resx">
+      <DependentUpon>NewAppoinment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
