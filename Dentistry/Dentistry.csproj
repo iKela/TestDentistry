@@ -166,10 +166,6 @@
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="General\Main.resx">
-    <EmbeddedResource Include="Appoinment\NewAppoinment.resx">
-      <DependentUpon>NewAppoinment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedCard\EditMedCard.resx">
