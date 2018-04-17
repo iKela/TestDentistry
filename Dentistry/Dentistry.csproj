@@ -109,10 +109,10 @@
     <Compile Include="Entity\Users.cs" />
     <Compile Include="General\TextCheck.cs" />
     <Compile Include="General\WordSave.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="General\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="General\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MedCard\EditMedCard.cs">
@@ -127,9 +127,39 @@
     <Compile Include="MedCard\NewMedCard.Designer.cs">
       <DependentUpon>NewMedCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appoinment\NewAppoinment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appoinment\NewAppoinment.Designer.cs">
+      <DependentUpon>NewAppoinment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
+    <Compile Include="Source\AboutSoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\AboutSoft.Designer.cs">
+      <DependentUpon>AboutSoft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Calculator.Designer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\HelpContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\HelpContacts.Designer.cs">
+      <DependentUpon>HelpContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="General\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedCard\EditMedCard.resx">
@@ -137,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedCard\NewMedCard.resx">
       <DependentUpon>NewMedCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appoinment\NewAppoinment.resx">
+      <DependentUpon>NewAppoinment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +180,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Source\AboutSoft.resx">
+      <DependentUpon>AboutSoft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Calculator.resx">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\HelpContacts.resx">
+      <DependentUpon>HelpContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -178,9 +223,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Appoinment\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
