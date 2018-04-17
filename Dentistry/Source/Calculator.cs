@@ -18,7 +18,7 @@ namespace Dentistry.Source
         bool allow = true;
 
         Main ownerForm = null;
-        NewAppoinment ownerForm2 = null;
+        Appoinment.NewAppoinment ownerForm2 = null;
 
         public Calculator(Main ownerForm)
         {
@@ -31,7 +31,7 @@ namespace Dentistry.Source
             }
 
         }
-        public Calculator(NewAppoinment ownerForm2)
+        public Calculator(Appoinment.NewAppoinment ownerForm2)
         {
             if (open == true)
             {

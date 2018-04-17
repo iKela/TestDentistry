@@ -113,8 +113,8 @@
     <Compile Include="Entity\ModelFirs.cs" />
     <Compile Include="Entity\Policies.cs" />
     <Compile Include="Entity\Users.cs" />
-    <Compile Include="General\TextCheck.cs" />
-    <Compile Include="General\WordSave.cs" />
+    <Compile Include="General\Classes\TextCheck.cs" />
+    <Compile Include="General\Classes\WordSave.cs" />
     <Compile Include="General\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,12 +132,6 @@
     </Compile>
     <Compile Include="MedCard\NewMedCard.Designer.cs">
       <DependentUpon>NewMedCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Appoinment\NewAppoinment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Appoinment\NewAppoinment.Designer.cs">
-      <DependentUpon>NewAppoinment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,12 +153,13 @@
     <Compile Include="Source\HelpContacts.Designer.cs">
       <DependentUpon>HelpContacts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\UserInfo.cs">
+    <Compile Include="Tutorial\UserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\UserInfo.Designer.cs">
+    <Compile Include="Tutorial\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tutorial\Classes\UserInfoAddClass.cs" />
     <EmbeddedResource Include="General\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,7 +190,7 @@
     <EmbeddedResource Include="Source\HelpContacts.resx">
       <DependentUpon>HelpContacts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\UserInfo.resx">
+    <EmbeddedResource Include="Tutorial\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

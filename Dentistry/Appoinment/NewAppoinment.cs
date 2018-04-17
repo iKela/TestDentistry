@@ -112,9 +112,8 @@ namespace Dentistry.Appoinment
 
         private void btn6_Click(object sender, EventArgs e)
         {
-            // Doesn't have Calculator Form
-            //Calculator newForm = new Calculator(this);
-            //newForm.Show();
+            Source.Calculator newForm = new Source.Calculator(this);
+            newForm.Show();
         }
         public void Buttonclear()
         {
