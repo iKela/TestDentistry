@@ -33,5 +33,11 @@ namespace Dentistry
             MedCard.EditMedCard newForm = new MedCard.EditMedCard();
             newForm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Appoinment.NewAppoinment newAppoinment = new Appoinment.NewAppoinment();
+            newAppoinment.Show();
+        }
     }
 }

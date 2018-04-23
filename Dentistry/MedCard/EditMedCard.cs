@@ -142,7 +142,7 @@ namespace Dentistry.MedCard
                 txtMouthState.Text,txtXReyData.Text,txtColorVita.Text,txtDateOfLessons.Text,txtControlDate.Text,txtSurvayPlan.Text,
                 txtTreatmentPlan.Text};
 
-            General.EditMedCard general = new General.EditMedCard(arr);
+            General.EditMedCardSave general = new General.EditMedCardSave(arr);
             if(general.SaveToWordFile() == true)
             {
                 ButtonClear();

@@ -9,14 +9,14 @@ using System.Collections;
 
 namespace Dentistry.General
 {
-    class NewMedCard
+    class NewMedCardSave
     {
         private string[] text;
         private FolderBrowserDialog folderBrowserDialog1;
         private OpenFileDialog openFileDialog1;
 
-        public NewMedCard() { }
-        public NewMedCard(string[] str)
+        public NewMedCardSave() { }
+        public NewMedCardSave(string[] str)
         {
             text = str;
         }
@@ -96,7 +96,7 @@ namespace Dentistry.General
         }
 
     }
-    class EditMedCard // Not Ready
+    class EditMedCardSave // Not Ready
     {
         ArrayList DateList = new ArrayList();
         ArrayList InfoList = new ArrayList();
@@ -104,8 +104,8 @@ namespace Dentistry.General
         private string[] text;
         private OpenFileDialog openFileDialog1;
 
-        public EditMedCard() { }
-        public EditMedCard(string[] str)
+        public EditMedCardSave() { }
+        public EditMedCardSave(string[] str)
         {
             text = str;
         }
@@ -206,5 +206,114 @@ namespace Dentistry.General
             range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
         }
 
+    }
+
+    class NewAppoinmentSave
+    {
+        private string[] text;
+        private FolderBrowserDialog folderBrowserDialog1;
+        private OpenFileDialog openFileDialog1;
+
+        public NewAppoinmentSave() { }
+        public NewAppoinmentSave(string[] str)
+        {
+            text = str;
+        }
+        public bool SaveToWordFile()
+        {
+
+            // string[] arr = {cmbPacient.Text, txtDateOfBirthday.Text, txtNumber.Text,txtAddress.Text,dtpDateOfCreating.Text,txtGender.Text,
+            //     txtDiagnosis.Text,txtComplaints.Text,txtDoneDiseases.Text,txtCurrentDisease.Text,txtSurvayData.Text,txtBite.Text,
+            //     txtMouthState.Text,txtXReyData.Text,txtColorVita.Text,txtDateOfLessons.Text,txtControlDate.Text,txtSurvayPlan.Text,
+            //     txtTreatmentPlan.Text};
+            //
+            // General.EditMedCardSave general = new General.EditMedCardSave(arr);
+            // if (general.SaveToWordFile() == true)
+            // {
+            //     ButtonClear();
+            // }
+            var name = text[0];
+
+            try
+            {
+                addAppoinment(@Properties.Settings.Default.Name + "\\" + name + ".docx", name);
+                return true;
+            }
+            catch
+            {
+                string message = "Виникли проблеми при спробі додати прийом, вкажіть шлях до екземпляру. Бажаєте вказати шлях?";
+                string caption = "Проблема при редагуванні.";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    openFileDialog1.Filter = ".docx file (*.docx)|*.docx";
+                    openFileDialog1.FilterIndex = 1;
+                    openFileDialog1.Multiselect = false;
+
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        string sFileName = openFileDialog1.FileName;
+                        Properties.Settings.Default.ExistMedCardFile = sFileName;
+                        if (Properties.Settings.Default.ExistMedCardFile != null)
+                        {
+                            addAppoinment(@Properties.Settings.Default.ExistMedCardFile, name);
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void ReplaceWordStub(string stubToReplace, string text, Word.Document wordDocument)
+        {
+            var range = wordDocument.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
+            //range.Font.ColorIndex = Word.WdColorIndex.wdBlack; Color
+        }
+
+        private void replaceDateWord(string stubToReplace, string replaceDate, Word.Document wordDocument)
+        {
+            var range = wordDocument.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: replaceDate, ReplaceWith: stubToReplace);
+        }
+
+        private void addAppoinment(string way, string name)
+        {
+            var date = text[2];
+            var doctor = text[1];
+            var desctription = text[3];
+
+            var wordApp = new Word.Application();
+            wordApp.Visible = false;
+
+            var wordDocument = wordApp.Documents.Open(way);
+
+            ReplaceWordStub("{date1}", date, wordDocument);
+            ReplaceWordStub("{description1}", desctription, wordDocument);
+            int i = 1;
+            int j = 2;
+            do
+            {
+                replaceDateWord("{date" + i + "}", "{date" + j + "}", wordDocument);
+                replaceDateWord("{description" + i + "}", "{description" + j + "}", wordDocument);
+                i++;
+                j++;
+
+            } while (i <= 22 && j <= 23);
+
+            wordDocument.SaveAs(@Properties.Settings.Default.Name + "\\" + name + ".docx");
+            MessageBox.Show("Успішно збережно в: " + @Properties.Settings.Default.Name + " як " + name + ".docx");
+
+            wordApp.ActiveDocument.Close();
+            wordApp.Quit();
+        }
     }
 }
