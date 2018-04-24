@@ -70,5 +70,17 @@ namespace Dentistry.Properties {
                 this["ExistMedCardFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TeamViewerDirection {
+            get {
+                return ((string)(this["TeamViewerDirection"]));
+            }
+            set {
+                this["TeamViewerDirection"] = value;
+            }
+        }
     }
 }
