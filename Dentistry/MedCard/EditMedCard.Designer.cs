@@ -1508,6 +1508,7 @@
             this.MaximumSize = new System.Drawing.Size(573, 753);
             this.MinimumSize = new System.Drawing.Size(573, 753);
             this.Name = "EditMedCard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditMedCard";
             this.tabControl1.ResumeLayout(false);
             this.tbInfo.ResumeLayout(false);

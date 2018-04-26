@@ -312,6 +312,7 @@
             this.btnGeneral.Size = new System.Drawing.Size(211, 23);
             this.btnGeneral.Text = "Загальні               ";
             this.btnGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGeneral.Click += new System.EventHandler(this.btnGeneral_Click);
             // 
             // toolStripSeparator1
             // 
@@ -325,6 +326,7 @@
             this.btnSecurity.Name = "btnSecurity";
             this.btnSecurity.Size = new System.Drawing.Size(211, 20);
             this.btnSecurity.Text = "Безпека й авторизація";
+            this.btnSecurity.Click += new System.EventHandler(this.btnSecurity_Click);
             // 
             // toolStripSeparator2
             // 
@@ -339,6 +341,7 @@
             this.btnPolicy.Size = new System.Drawing.Size(211, 20);
             this.btnPolicy.Text = " Права                              ";
             this.btnPolicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPolicy.Click += new System.EventHandler(this.btnPolicy_Click);
             // 
             // picPhoto
             // 
@@ -351,6 +354,7 @@
             this.picPhoto.Size = new System.Drawing.Size(214, 229);
             this.picPhoto.TabIndex = 0;
             this.picPhoto.TabStop = false;
+            this.picPhoto.Click += new System.EventHandler(this.picPhoto_Click);
             // 
             // gboxGeneral
             // 
@@ -392,6 +396,9 @@
             this.btnAccountExit.TabIndex = 2;
             this.btnAccountExit.Text = "Вийти з облікового запису";
             this.btnAccountExit.UseVisualStyleBackColor = false;
+            this.btnAccountExit.Click += new System.EventHandler(this.button1_Click);
+            this.btnAccountExit.MouseLeave += new System.EventHandler(this.btnAccountExit_MouseLeave);
+            this.btnAccountExit.MouseHover += new System.EventHandler(this.btnAccountExit_MouseHover);
             // 
             // btnMainMenu
             // 
@@ -406,6 +413,9 @@
             this.btnMainMenu.Size = new System.Drawing.Size(35, 35);
             this.btnMainMenu.TabIndex = 1;
             this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            this.btnMainMenu.MouseLeave += new System.EventHandler(this.btnMainMenu_MouseLeave);
+            this.btnMainMenu.MouseHover += new System.EventHandler(this.btnMainMenu_MouseHover);
             // 
             // panelZ3
             // 
