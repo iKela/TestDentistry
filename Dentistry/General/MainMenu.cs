@@ -12,6 +12,19 @@ namespace Dentistry.General
 {
     public partial class MainMenu : Form
     {
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
         Main main;
         MedCard.NewMedCard newMedCard;
         MedCard.EditMedCard editMedCard;
@@ -30,14 +43,14 @@ namespace Dentistry.General
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            setTheme();
+            SetTheme();
             btnUsername.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnUsernameLogo.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnInfo.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnExit.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
-        private void setTheme()
+        private void SetTheme()
         {
             switch (Properties.Settings.Default.Theme)
             {
@@ -55,7 +68,6 @@ namespace Dentistry.General
                         {
                             this.BackColor = Color.CornflowerBlue;
                         }
-
                         break;
                     }
                 case 2:
@@ -123,14 +135,14 @@ namespace Dentistry.General
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (helpContacts == null || helpContacts.IsDisposed)
+            if (userInfo == null || userInfo.IsDisposed)
             {
-                helpContacts = new Source.HelpContacts();
-                helpContacts.Show();
+                userInfo = new Source.UserInfo();
+                userInfo.Show();
             }
             else
             {
-                helpContacts.Focus();
+                userInfo.Focus();
             }
         }
 

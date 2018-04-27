@@ -114,7 +114,6 @@ namespace Dentistry
                                 PanelZ.PanelZ panel = panelZs[i];
                                 Design.ChangeTheme.PanelToChange(ref panel, Color.DarkGray, Color.LightGray);
                             }
-                            this.BackColor = Color.CornflowerBlue;
                             this.BackColor = Color.LightGray;
                         }
 
@@ -280,7 +279,15 @@ namespace Dentistry
 
         private void tsmiRemoteControl_Click(object sender, EventArgs e)
         {
-            Process.Start(Properties.Settings.Default.TeamViewerDirection);
+            try
+            {
+                Process.Start(Properties.Settings.Default.TeamViewerDirection);
+            }
+            catch
+            {
+                MessageBox.Show("Шляш до TeamViewer не вказаний!\n Для того щоб вказати шлях пройдіть в\n \"Налаштування\" -> \"Шляхи\"", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -334,11 +341,6 @@ namespace Dentistry
         private void сbArrears_CheckedChanged(object sender, EventArgs e)
         {
             Arrears();
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void lbChanels_SelectedIndexChanged(object sender, EventArgs e)
@@ -1543,17 +1545,7 @@ namespace Dentistry
             newForm.Show();
             this.Hide();
         }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            showAccount();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            showAccount();
-        }
-        private void showAccount()
+        private void showAccount(object sender, EventArgs e)
         {
             if (account == null || account.IsDisposed)
             {
@@ -1564,6 +1556,11 @@ namespace Dentistry
             {
                 account.Focus();
             }
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

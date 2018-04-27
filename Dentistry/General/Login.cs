@@ -61,6 +61,7 @@ namespace Dentistry.General
             // Autauthorization();
             MainMenu newForm = new MainMenu();
             newForm.Show();
+            this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

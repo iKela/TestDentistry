@@ -219,6 +219,7 @@
             this.btnAccount.Text = "nazar1997";
             this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAccount.UseVisualStyleBackColor = false;
+            this.btnAccount.Click += new System.EventHandler(this.showAccount);
             // 
             // btnAccountPhoto
             // 
@@ -235,6 +236,7 @@
             this.btnAccountPhoto.TabIndex = 11;
             this.btnAccountPhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAccountPhoto.UseVisualStyleBackColor = false;
+            this.btnAccountPhoto.Click += new System.EventHandler(this.showAccount);
             // 
             // menuStrip1
             // 

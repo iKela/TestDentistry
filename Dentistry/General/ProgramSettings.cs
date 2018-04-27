@@ -13,7 +13,7 @@ namespace Dentistry.General
 {
     public partial class ProgramSettings : Form
     {
-        string[] colorsNames = { "Чорно-біла", "Синя", "Біла" };
+        string[] colorsNames = { "Чорно-білий", "Синій", "Сірий" };
 
         int selectedTheme;
 
