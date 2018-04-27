@@ -1088,6 +1088,7 @@
             this.btnAdd.Transparent1 = 50;
             this.btnAdd.Transparent2 = 250;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlTop
             // 
@@ -1231,6 +1232,7 @@
             this.Name = "NewAppoinment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewAppoinment";
+            this.Load += new System.EventHandler(this.NewAppoinment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TeethPanel)).EndInit();
             this.panelZ1.ResumeLayout(false);
             this.pnlTop.ResumeLayout(false);

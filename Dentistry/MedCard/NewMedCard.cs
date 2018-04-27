@@ -185,9 +185,7 @@ namespace Dentistry.MedCard
                 MessageBox.Show(ex.Message, "Помилка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 testCon.Close();
             }
-
             SaveToWordFile();
-            MessageBox.Show("Виконано!");
         }       
 
         private void txtGender_KeyPress(object sender, KeyPressEventArgs e)

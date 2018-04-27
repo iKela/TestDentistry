@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,11 @@ namespace Dentistry.Appoinment
 {
     public partial class NewAppoinment : Form
     {
+        int Arrears;
+        string MedCardId = null;
+        string DoctorId = null;
+        string query;
+        SqlConnection testCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GoogleDrive InSoP\Stomatology\Stomatology\DataStomatology.mdf;Integrated Security=True;Connect Timeout=30");
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -34,6 +40,54 @@ namespace Dentistry.Appoinment
         {
             InitializeComponent();
             SetTheme();
+        }
+        private void NewAppoinment_Load(object sender, EventArgs e)
+        {
+            cmbPatient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbPatient.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            testCon.Open();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT Name from MedCard", testCon);
+            try
+            {
+                sqlReader = command.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    cmbPatient.Items.Add(Convert.ToString(sqlReader["Name"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null) sqlReader.Close();
+            }
+            testCon.Close();
+
+            testCon.Open();
+            sqlReader = null;
+            command = null;
+            command = new SqlCommand("SELECT Name from Doctor", testCon);
+            try
+            {
+                sqlReader = command.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    cmbDoctor.Items.Add(Convert.ToString(sqlReader["Name"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null) sqlReader.Close();
+            }
+            testCon.Close();
         }
         private void SetTheme()
         {
@@ -118,12 +172,10 @@ namespace Dentistry.Appoinment
             }
 
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btn6_Click(object sender, EventArgs e)
         {
             Source.Calculator newForm = new Source.Calculator(this);
@@ -885,9 +937,76 @@ namespace Dentistry.Appoinment
         private void btnAdd_Click(object sender, EventArgs e)
         {
             SaveToWordFile();
-            //Doesn't has a datebase currently
-            //saveToBD();
+            saveToBD();
         }
+        private void saveToBD()
+        {
+            try
+            {
+                if (cmbPatient.Text.Length == 0 || txtDescription.Text.Length == 0)
+                    throw new Exception("Не всі поля заповнені!");
+                else
+                {
+                    if (string.IsNullOrEmpty(cmbPatient.Text)) throw new Exception("Виберіть  Паціента!");
+                    testCon.Open();
+                    query = $"select MedCard_Id from MedCard where [Name] = N'{cmbPatient.Text}'";
+                    SqlCommand cmd1 = new SqlCommand(query, testCon);
+                    SqlDataReader reader = cmd1.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        MedCardId = reader["MedCard_Id"].ToString();
+                    }
+                    else
+                    {
+                        throw new Exception("Не вибраний паціент, перевірте ще раз!");
+                    }
+                    reader.Close();
+                    testCon.Close();
+
+                    if (string.IsNullOrEmpty(cmbDoctor.Text)) throw new Exception("Виберіть Лікаря!");
+                    testCon.Open();
+                    query = $"select Doctor_Id from Doctor where [Name] = N'{cmbDoctor.Text}'";
+                    cmd1 = new SqlCommand(query, testCon);
+                    reader = cmd1.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        DoctorId = reader["Doctor_Id"].ToString();
+                    }
+                    else
+                    {
+                        throw new Exception("Не вибраний паціент, перевірте ще раз!");
+                    }
+                    reader.Close();
+                    testCon.Close();
+                    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                    testCon.Open();
+                    cmd1 = testCon.CreateCommand();
+                    cmd1.CommandType = CommandType.Text;
+                    cmd1.CommandText = $"INSERT INTO Reception (IdMedCard, Date, IdDoctor, Info, Money, Arrears, tlt1, tlt2, tlt3, tlt4, tlt5, tlt6, tlt7, tlt8, " +
+                        $"trt1, trt2, trt3, trt4, trt5, trt6, trt7, trt8, " +
+                        $"brt1, brt2, brt3, brt4, brt5, brt6, brt7, brt8, " +
+                        $"blt1, blt2, blt3, blt4, blt5, blt6, blt7, blt8)" +
+                        $"values ('{MedCardId}', '{dtpDate.Value.Date.ToString("yyyy/MM/dd")}', N'{DoctorId}', N'{txtDescription.Text}', N'{txtMoney.Text}', '{Arrears}', " +
+
+                        $" N'{TopLeftTextBox1.Text}',  N'{TopLeftTextBox2.Text}',  N'{TopLeftTextBox3.Text}',  N'{TopLeftTextBox4.Text}',  N'{TopLeftTextBox5.Text}',  N'{TopLeftTextBox6.Text}',  N'{TopLeftTextBox7.Text}',  N'{TopLeftTextBox8.Text}'," +
+                        $" N'{TopRightTextBox1.Text}', N'{TopRightTextBox2.Text}', N'{TopRightTextBox3.Text}', N'{TopRightTextBox4.Text}', N'{TopRightTextBox5.Text}', N'{TopRightTextBox6.Text}', N'{TopRightTextBox7.Text}', N'{TopRightTextBox8.Text}'," +
+                        $" N'{BotRightTextBox8.Text}', N'{BotRightTextBox7.Text}', N'{BotRightTextBox6.Text}', N'{BotRightTextBox5.Text}', N'{BotRightTextBox4.Text}', N'{BotRightTextBox3.Text}', N'{BotRightTextBox2.Text}', N'{BotRightTextBox1.Text}'," +
+                        $" N'{BotLeftTextBox8.Text}',  N'{BotLeftTextBox7.Text}',  N'{BotLeftTextBox6.Text}',  N'{BotLeftTextBox5.Text}',  N'{BotLeftTextBox4.Text}',  N'{BotLeftTextBox3.Text}',  N'{BotLeftTextBox2.Text}',  N'{BotLeftTextBox1.Text}')";
+
+                    cmd1.ExecuteNonQuery();
+
+                    ButtonClear();
+                    MessageBox.Show("Додано новий прийом.");
+                    testCon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Помилка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                testCon.Close();
+            }
+        }
+        
         #region Заповнення Word файла  
         private void SaveToWordFile()
         {
