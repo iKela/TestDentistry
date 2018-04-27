@@ -80,7 +80,7 @@ namespace Dentistry.MedCard
                             for (int i = 0; i < buttons.Count; i++)
                             {
                                 Button button = buttons[i];
-                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Black);
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Transparent);
                             }
                             // Колір лейбла
                             for (int i = 0; i < labels.Count; i++)
@@ -101,7 +101,7 @@ namespace Dentistry.MedCard
                             for (int i = 0; i < buttons.Count; i++)
                             {
                                 Button button = buttons[i];
-                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Black);
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Transparent);
                             }
                             // Колір лейбла
                             for (int i = 0; i < labels.Count; i++)
