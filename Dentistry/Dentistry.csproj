@@ -116,6 +116,12 @@
     <Compile Include="General\Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="General\AddDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\AddDoctor.Designer.cs">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="General\Classes\IpInfo.cs" />
     <Compile Include="General\Classes\TextCheck.cs" />
     <Compile Include="General\Classes\WordSave.cs" />
@@ -184,6 +190,9 @@
     <Compile Include="Tutorial\Classes\UserInfoAddClass.cs" />
     <EmbeddedResource Include="General\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\AddDoctor.resx">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
