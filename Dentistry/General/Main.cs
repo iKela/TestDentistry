@@ -11,7 +11,7 @@ namespace Dentistry
 {
     public partial class Main : Form
     {
-        SqlConnection testCon = new SqlConnection(@"Data Source=insopdentistry.cywgv3xkqj2b.eu-west-3.rds.amazonaws.com;Initial Catalog=Dentistry;Persist Security Info=True;User ID=iKela;Password=6621Nazar");
+        SqlConnection testCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GoogleDrive InSoP\Stomatology\Stomatology\DataStomatology.mdf;Integrated Security=True;Connect Timeout=30");
 
         MedCard.NewMedCard newMedCard;
         MedCard.EditMedCard editMedCard;
@@ -28,6 +28,7 @@ namespace Dentistry
         string MedCardId;
         int arrears;
         string text;
+        string DoctorId = null;
         bool numberisthere = false;
         
         public void PassValue(string strValue)        //Calculator
@@ -408,7 +409,7 @@ namespace Dentistry
             sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {
-                lblDoctor.Text = sqlReader["Doctor"].ToString();
+                DoctorId = sqlReader["IdDoctor"].ToString();
                 txtBDate.Text = sqlReader["Date"].ToString();
                 txtDescription.Text = sqlReader["info"].ToString();
                 txtMoney.Text = sqlReader["Money"].ToString();
@@ -452,21 +453,26 @@ namespace Dentistry
             }
             sqlReader.Close();
             testCon.Close();
-            if (arrears == 1)
-            { cbArrears.Checked = true; }
+             query1 = $"SELECT Name From Doctor where  Doctor_Id = '{DoctorId}' ";
+
+            testCon.Open();
+             sqlReader = null;
+            command = new SqlCommand(query1, testCon);
+            sqlReader = command.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                lblDoctor.Text = sqlReader["Name"].ToString();
+            }
+            sqlReader.Close();
+            testCon.Close();
+            if (arrears == 1) { cbArrears.Checked = true; }
             else { cbArrears.Checked = false; }
         }
 
         private void Arrears()
         {
-            if (cbArrears.Checked == true)
-            {
-                arrears = 1;
-            }
-            else
-            {
-                arrears = 0;
-            }
+            if (cbArrears.Checked == true) arrears = 1;
+            else arrears = 0;  
         }
 
         private void functionForbtnUpdate()
@@ -479,12 +485,12 @@ namespace Dentistry
                 {
                     testCon.Open();
                     string ReceptionId = "";
-                    string query = $"select Id from Reception where [Date] = N'{comboBox1.Text}'";
+                    string query = $"select Reception_Id from Reception where [Date] = N'{comboBox1.Text}'";
                     SqlCommand cmd1 = new SqlCommand(query, testCon);
                     SqlDataReader reader = cmd1.ExecuteReader();
                     if (reader.Read())
                     {
-                        ReceptionId = reader["Id"].ToString();
+                        ReceptionId = reader["Reception_Id"].ToString();
                     }
                     else
                     {
@@ -556,7 +562,7 @@ namespace Dentistry
         {
             dataGridView1.Rows.Clear();
             testCon.Open();
-            string upqwery = "select Id, Name, Birthday, Number from MedCard";
+            string upqwery = "select MedCard_Id, Name, Birthday, Number from MedCard";
             SqlCommand sqlComm = new SqlCommand(upqwery, testCon);
             SqlDataReader sqlDR;
             sqlDR = sqlComm.ExecuteReader();
@@ -612,7 +618,7 @@ namespace Dentistry
             BotRightTextBox_3.Text = "";
             BotRightTextBox_2.Text = "";
             BotRightTextBox_1.Text = "";
-        }
+        }//need update
 
         #endregion
 
