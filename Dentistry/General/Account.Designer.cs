@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Account));
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskNumber = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -62,6 +62,7 @@
             this.panelZ2 = new PanelZ.PanelZ();
             this.pnlPolicySettings = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -80,7 +81,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBoxLoginLocation = new System.Windows.Forms.ListBox();
             this.pnlGeneralSettings = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panelZ1.SuspendLayout();
@@ -107,13 +107,13 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(211, 6);
             // 
-            // maskedTextBox1
+            // mskNumber
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(175, 81);
-            this.maskedTextBox1.Mask = "(999) 000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(279, 25);
-            this.maskedTextBox1.TabIndex = 12;
+            this.mskNumber.Location = new System.Drawing.Point(175, 81);
+            this.mskNumber.Mask = "(999) 000-0000";
+            this.mskNumber.Name = "mskNumber";
+            this.mskNumber.Size = new System.Drawing.Size(279, 25);
+            this.mskNumber.TabIndex = 12;
             // 
             // label3
             // 
@@ -238,7 +238,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.maskedTextBox1);
+            this.groupBox5.Controls.Add(this.mskNumber);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.lblEmail);
             this.groupBox5.Controls.Add(this.txtEmail);
@@ -434,9 +434,9 @@
             // panelZ2
             // 
             this.panelZ2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelZ2.Controls.Add(this.pnlGeneralSettings);
             this.panelZ2.Controls.Add(this.pnlPolicySettings);
             this.panelZ2.Controls.Add(this.pnlSecuritySettings);
-            this.panelZ2.Controls.Add(this.pnlGeneralSettings);
             this.panelZ2.EndColor = System.Drawing.Color.White;
             this.panelZ2.GradientAngle = 90;
             this.panelZ2.Location = new System.Drawing.Point(228, 46);
@@ -468,6 +468,15 @@
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Права";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 32);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Застосувати";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -659,15 +668,7 @@
             this.pnlGeneralSettings.Size = new System.Drawing.Size(506, 443);
             this.pnlGeneralSettings.TabIndex = 0;
             this.pnlGeneralSettings.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Застосувати";
-            this.button1.UseVisualStyleBackColor = true;
+           
             // 
             // Account
             // 
@@ -712,7 +713,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;

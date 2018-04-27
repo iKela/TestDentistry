@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,15 @@ namespace Dentistry.General
 {
     public partial class Account : Form
     {
-        //SqlConnection testCon = new SqlConnection(@"Data Source=insopdentistry.cywgv3xkqj2b.eu-west-3.rds.amazonaws.com;Initial Catalog=Dentistry;Persist Security Info=True;User ID=iKela;Password=6621Nazar");
-
+        string user;
+        int[] arrears = { 0, 0, 0 };
         int number;
+        SqlConnection testCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GoogleDrive InSoP\Stomatology\Stomatology\DataStomatology.mdf;Integrated Security=True;Connect Timeout=30");
         public Account()
         {
             InitializeComponent();
             setTheme();
         }
-
         private void setTheme()
         {
             switch (Properties.Settings.Default.Theme)
@@ -53,13 +54,11 @@ namespace Dentistry.General
                     }
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             General.Login newForm = new General.Login();
             this.Close();
         }
-
         private void setVisible()
         {
             switch (number)
@@ -92,19 +91,16 @@ namespace Dentistry.General
             number = 1;
             setVisible();
         }
-
         private void btnSecurity_Click(object sender, EventArgs e)
         {
             number = 2;
             setVisible();
         }
-
         private void btnPolicy_Click(object sender, EventArgs e)
         {
             number = 3;
             setVisible();
         }
-
         private void picPhoto_Click(object sender, EventArgs e)
         {
             Bitmap image;
@@ -127,44 +123,37 @@ namespace Dentistry.General
                 }
             }
         }
-        //============
-        string user;
-        int[] arrears = { 0, 0, 0 };
+        private void Account_Load(object sender, EventArgs e)
+        {
+            btnAccountExit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnMainMenu.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-        //============
-        //private void Account_Load(object sender, EventArgs e)
-        //{
-        //    btnAccountExit.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        //    btnMainMenu.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            //string query1 = $"SELECT * From Policy  where  IdUser = '{5}'";
+            //int i = 0;
+            //testCon.Open();
+            //SqlDataReader sqlReader = null;
+            //SqlCommand command = new SqlCommand(query1, testCon);
+            //sqlReader = command.ExecuteReader();
+            //while (sqlReader.Read())
+            //{
+            //    arrears[i] = sqlReader["Allow"].GetHashCode();
+            //    i++;
+            //}
+            //if (arrears[0] == 1)
+            //{ checkBox1.Checked = true; }
+            //else { checkBox1.Checked = false; }
 
-        //    string query1 = $"SELECT * From Policy  where  IdUser = '{5}'";
-        //    int i = 0;
-        //    testCon.Open();
-        //    SqlDataReader sqlReader = null;
-        //    SqlCommand command = new SqlCommand(query1, testCon);
-        //    sqlReader = command.ExecuteReader();
-        //    while (sqlReader.Read())
-        //    {
+            //if (arrears[1] == 1)
+            //{ checkBox2.Checked = true; }
+            //else { checkBox2.Checked = false; }
 
-        //        arrears[i] = sqlReader["Allow"].GetHashCode();
+            //if (arrears[2] == 1)
+            //{ checkBox3.Checked = true; }
+            //else { checkBox3.Checked = false; }
 
-        //        i++;
-        //    }
-        //    if (arrears[0] == 1)
-        //    { checkBox1.Checked = true; }
-        //    else { checkBox1.Checked = false; }
-
-        //    if (arrears[1] == 1)
-        //    { checkBox2.Checked = true; }
-        //    else { checkBox2.Checked = false; }
-
-        //    if (arrears[2] == 1)
-        //    { checkBox3.Checked = true; }
-        //    else { checkBox3.Checked = false; }
-
-        //    testCon.Close();
-        //    sqlReader.Close();
-        //}
+            //testCon.Close();
+            //sqlReader.Close();
+        }
         private void btnAccountExit_MouseHover(object sender, EventArgs e)
         {
             btnAccountExit.Font = new Font("Times New Roman", 12, FontStyle.Underline);
@@ -173,17 +162,14 @@ namespace Dentistry.General
         {
             btnAccountExit.Font = new Font("Times New Roman", 10, FontStyle.Underline);
         }
-
         private void btnMainMenu_MouseHover(object sender, EventArgs e)
         {
             btnMainMenu.Size = new Size(37, 37);
         }
-
         private void btnMainMenu_MouseLeave(object sender, EventArgs e)
         {
             btnMainMenu.Size = new Size(35, 35);
         }
-
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             General.MainMenu mainMenu = new General.MainMenu();
