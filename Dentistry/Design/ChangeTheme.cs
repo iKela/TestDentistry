@@ -8,33 +8,22 @@ namespace Dentistry.Design
 {
     class ChangeTheme
     {
-        public static void ButtonColorChange(int num, ref System.Windows.Forms.Button buttonToChange)
+        public static void ButtonColorChange(ref System.Windows.Forms.Button buttonToChange, System.Drawing.Color color)
         {
-            switch (num)
-            {
-                case 0:
-                    buttonToChange.BackColor = System.Drawing.Color.White;
-                    break;
-                case 1:
-                    buttonToChange.BackColor = System.Drawing.Color.Transparent;
-                    break;
-                default:
-                    break;
-            }
+            buttonToChange.BackColor = color;
         }
-        public static void LabelColorChange(int num, ref System.Windows.Forms.Label labelToChange)
+        public static void LabelColorChange(ref System.Windows.Forms.Label labelToChange, System.Drawing.Color color)
         {
-            switch (num)
-            {
-                case 0:
-                    labelToChange.ForeColor = System.Drawing.Color.White;
-                    break;
-                case 1:
-                    labelToChange.ForeColor = System.Drawing.Color.Black;
-                    break;
-                default:
-                    break;
-            }
+            labelToChange.ForeColor = color;
+        }
+        public static void PanelToChange(ref PanelZ.PanelZ panelToChange, System.Drawing.Color endColor, System.Drawing.Color startColor)
+        {
+            panelToChange.EndColor = endColor;
+            panelToChange.StartColor = startColor;
+        }
+        public static void GroupBoxToChange(ref System.Windows.Forms.GroupBox groupBox, System.Drawing.Color color)
+        {
+            groupBox.ForeColor = color;
         }
     }
 }

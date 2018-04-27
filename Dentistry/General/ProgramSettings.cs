@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,14 @@ namespace Dentistry.General
             toolTip();
         }
 
-        private void SetTheme()
+        public void SetTheme()
         {
+            List<PanelZ.PanelZ> panels = new List<PanelZ.PanelZ> { pnlPaths,pnlButtons, pnlGeneral};
+            List<GroupBox> groupBoxes = new List<GroupBox> {gboxAppearance, gboxDBPath, gboxTVPath};
+            List<Label> labels = new List<Label>
+            {
+                lblTheme, lblDBPath, lblTVPath
+            };
             switch (Properties.Settings.Default.Theme)
             {
                 case 0:
@@ -46,18 +53,24 @@ namespace Dentistry.General
                         {
                             this.BackColor = Color.Black;
 
-                            pnlGeneral.EndColor = Color.Black;
-                            pnlGeneral.StartColor = Color.Black;
-                            pnlPaths.EndColor = Color.Black;
-                            pnlPaths.StartColor = Color.Black;
-                            pnlButtons.EndColor = Color.Black;
-                            pnlButtons.StartColor = Color.Black;
-                            lblTheme.ForeColor = Color.White;
-                            gboxAppearance.ForeColor = Color.White;
-                            gboxDBPath.ForeColor = Color.White;
-                            gboxTVPath.ForeColor = Color.White;
-                            lblDBPath.ForeColor = Color.White;
-                            lblTVPath.ForeColor = Color.White;
+                            // Колір лейблів
+                            for (int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.White);
+                            }
+                            //Колір панелів
+                            for (int i = 0; i < panels.Count;i++)
+                            {
+                                PanelZ.PanelZ panelz = panels[i];
+                                Design.ChangeTheme.PanelToChange(ref panelz, Color.Black, Color.Black);
+                            }
+                            //Колір ГрупБоксів
+                            for (int i = 0; i < groupBoxes.Count;i++)
+                            {
+                                GroupBox groupBox = groupBoxes[i];
+                                Design.ChangeTheme.GroupBoxToChange(ref groupBox, Color.White);
+                            }
                         }
                         break;
                     }
@@ -67,18 +80,24 @@ namespace Dentistry.General
                         {
                             this.BackColor = Color.CornflowerBlue;
 
-                            pnlGeneral.EndColor = Color.CornflowerBlue;
-                            pnlGeneral.StartColor = Color.CornflowerBlue;
-                            pnlPaths.EndColor = Color.CornflowerBlue;
-                            pnlPaths.StartColor = Color.CornflowerBlue;
-                            pnlButtons.EndColor = Color.CornflowerBlue;
-                            pnlButtons.StartColor = Color.CornflowerBlue;
-                            lblTheme.ForeColor = Color.Black;
-                            gboxAppearance.ForeColor = Color.Black;
-                            gboxDBPath.ForeColor = Color.Black;
-                            gboxTVPath.ForeColor = Color.Black;
-                            lblDBPath.ForeColor = Color.Black;
-                            lblTVPath.ForeColor = Color.Black;
+                            // Колір лейблів
+                            for (int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
+                            }
+                            //Колір панелів
+                            for (int i = 0; i < panels.Count; i++)
+                            {
+                                PanelZ.PanelZ panelz = panels[i];
+                                Design.ChangeTheme.PanelToChange(ref panelz, Color.Black, Color.CornflowerBlue);
+                            }
+                            //Колір ГрупБоксів
+                            for (int i = 0; i < groupBoxes.Count; i++)
+                            {
+                                GroupBox groupBox = groupBoxes[i];
+                                Design.ChangeTheme.GroupBoxToChange(ref groupBox, Color.Black);
+                            }
                         }
                         break;
                     }
@@ -88,18 +107,24 @@ namespace Dentistry.General
                         {
                             this.BackColor = Color.LightGray;
 
-                            pnlGeneral.EndColor = Color.LightGray;
-                            pnlGeneral.StartColor = Color.LightGray;
-                            pnlPaths.EndColor = Color.LightGray;
-                            pnlPaths.StartColor = Color.LightGray;
-                            pnlButtons.EndColor = Color.LightGray;
-                            pnlButtons.StartColor = Color.LightGray;
-                            lblTheme.ForeColor = Color.Black;
-                            gboxAppearance.ForeColor = Color.Black;
-                            gboxDBPath.ForeColor = Color.Black;
-                            gboxTVPath.ForeColor = Color.Black;
-                            lblDBPath.ForeColor = Color.Black;
-                            lblTVPath.ForeColor = Color.Black;
+                            // Колір лейблів
+                            for (int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
+                            }
+                            //Колір панелів
+                            for (int i = 0; i < panels.Count; i++)
+                            {
+                                PanelZ.PanelZ panelz = panels[i];
+                                Design.ChangeTheme.PanelToChange(ref panelz, Color.Black, Color.LightGray);
+                            }
+                            //Колір ГрупБоксів
+                            for (int i = 0; i < groupBoxes.Count; i++)
+                            {
+                                GroupBox groupBox = groupBoxes[i];
+                                Design.ChangeTheme.GroupBoxToChange(ref groupBox, Color.Black);
+                            }
                         }
                         break;
                     }
