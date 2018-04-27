@@ -1334,6 +1334,7 @@
             this.cmbPacient.Name = "cmbPacient";
             this.cmbPacient.Size = new System.Drawing.Size(310, 27);
             this.cmbPacient.TabIndex = 342;
+            this.cmbPacient.SelectedValueChanged += new System.EventHandler(this.cmbPacient_SelectedValueChanged);
             this.cmbPacient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbPacient_KeyDown);
             this.cmbPacient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPacient_KeyPress);
             // 
@@ -1506,10 +1507,11 @@
             this.Controls.Add(this.dtpDateOfCreating);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(573, 753);
-            this.MinimumSize = new System.Drawing.Size(573, 753);
+            this.MinimumSize = new System.Drawing.Size(573, 726);
             this.Name = "EditMedCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditMedCard";
+            this.Load += new System.EventHandler(this.EditMedCard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tbInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

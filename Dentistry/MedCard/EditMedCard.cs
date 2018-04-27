@@ -33,7 +33,7 @@ namespace Dentistry.MedCard
         public EditMedCard()
         {
             InitializeComponent();
-            //SetTheme();
+            SetTheme();
         }
         private void SetTheme()
         {
@@ -177,12 +177,12 @@ namespace Dentistry.MedCard
                 {
                     testCon.Open();
 
-                    string query = $"select I from MedCard where [Name] = N'{cmbPacient.Text}'";
+                    string query = $"select MedCard_Id from MedCard where [Name] = N'{cmbPacient.Text}'";
                     SqlCommand cmd1 = new SqlCommand(query, testCon);
                     SqlDataReader reader = cmd1.ExecuteReader();
                     if (reader.Read())
                     {
-                        MedCardId = reader["Id"].ToString();
+                        MedCardId = reader["MedCard_Id"].ToString();
                     }
                     else
                     {

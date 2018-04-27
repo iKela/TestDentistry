@@ -80,6 +80,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBoxLoginLocation = new System.Windows.Forms.ListBox();
             this.pnlGeneralSettings = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panelZ1.SuspendLayout();
@@ -458,6 +459,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button1);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
@@ -658,6 +660,15 @@
             this.pnlGeneralSettings.TabIndex = 0;
             this.pnlGeneralSettings.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 32);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Застосувати";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,5 +762,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox listBoxLoginLocation;
         private System.Windows.Forms.Panel pnlGeneralSettings;
+        private System.Windows.Forms.Button button1;
     }
 }
