@@ -18,38 +18,38 @@ namespace Dentistry.General
     {
         SqlConnection testCon = new SqlConnection(@"Data Source=insopdentistry.cywgv3xkqj2b.eu-west-3.rds.amazonaws.com;Initial Catalog=Dentistry;Persist Security Info=True;User ID=iKela;Password=6621Nazar");
 
-        //private void Autauthorization()
-        //{
-        //    if (txtUsername.TextLength < 8 || txtPassword.TextLength < 8)
-        //    {
-        //        txtError.Text = "Помилка: мінімальна кількість символів повинна дорівнювати або перевишати 8.";
-        //    }
-        //    int count = 0;
-        //
-        //    SqlCommand command = new SqlCommand($"select * from Users  where Login = '{txtUsername.Text}' and Password ='{txtPassword.Text}'", testCon);
-        //    {
-        //        //123' OR 1=1-- инекция
-        //
-        //        testCon.Open();
-        //        SqlDataReader reader = command.ExecuteReader();
-        //        {
-        //            while (reader.Read())
-        //                count += 1;
-        //        }
-        //        testCon.Close();
-        //    }
-        //    if (count > 0)
-        //    {
-        //        this.Hide();
-        //        MainMenu newForm = new MainMenu();
-        //        newForm.Show();
-        //    }
-        //    else if (count == 0)
-        //    {
-        //        MessageBox.Show("Перевірьте правильність введення Логіну!");
-        //        return;
-        //    }
-        //}
+        private void Autauthorization()
+        {
+            if (txtUsername.TextLength < 8 || txtPassword.TextLength < 8)
+            {
+                txtError.Text = "Помилка: мінімальна кількість символів повинна дорівнювати або перевишати 8.";
+            }
+            int count = 0;
+        
+            SqlCommand command = new SqlCommand($"select * from Users  where Login = '{txtUsername.Text}' and Password ='{txtPassword.Text}'", testCon);
+            {
+                //123' OR 1=1-- инекция
+        
+                testCon.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                {
+                    while (reader.Read())
+                        count += 1;
+                }
+                testCon.Close();
+            }
+            if (count > 0)
+            {
+                this.Hide();
+                MainMenu newForm = new MainMenu();
+                newForm.Show();
+            }
+            else if (count == 0)
+            {
+                MessageBox.Show("Перевірьте правильність введення Логіну!");
+                return;
+            }
+        }
 
         public Login()
         {

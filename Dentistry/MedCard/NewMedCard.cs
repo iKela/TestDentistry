@@ -56,14 +56,14 @@ namespace Dentistry.MedCard
                             {
                                 Button button = buttons[i];
                                 if (i == 0) buttons[i].BackColor = Color.Transparent;
-                                else Design.ChangeTheme.ButtonColorChange(0, ref button);
+                                else Design.ChangeTheme.ButtonColorChange(ref button, Color.White);
 
                             }
                             // Колір лейбла
                             for(int i = 0; i < labels.Count;i++)
                             {
                                 Label label = labels[i];
-                                Design.ChangeTheme.LabelColorChange(0, ref label);
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.White);
                             }
                         }
                 
@@ -79,13 +79,13 @@ namespace Dentistry.MedCard
                             for (int i = 0; i < buttons.Count; i++)
                             {
                                 Button button = buttons[i];
-                                Design.ChangeTheme.ButtonColorChange(1, ref button);
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Black);
                             }
                             // Колір лейбла
                             for (int i = 0; i < labels.Count; i++)
                             {
                                 Label label = labels[i];
-                                Design.ChangeTheme.LabelColorChange(1, ref label);
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
                             }
                         }
                         break;
@@ -100,13 +100,13 @@ namespace Dentistry.MedCard
                             for (int i = 0; i < buttons.Count; i++)
                             {
                                 Button button = buttons[i];
-                                Design.ChangeTheme.ButtonColorChange(1, ref button);
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Black);
                             }
                             // Колір лейбла
                             for (int i = 0; i < labels.Count; i++)
                             {
                                 Label label = labels[i];
-                                Design.ChangeTheme.LabelColorChange(1, ref label);
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
                             }
                         }
 
@@ -122,13 +122,13 @@ namespace Dentistry.MedCard
                             for (int i = 0; i < buttons.Count; i++)
                             {
                                 Button button = buttons[i];
-                                Design.ChangeTheme.ButtonColorChange(1, ref button);
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.White);
                             }
                             // Колір лейбла
                             for (int i = 0; i < labels.Count; i++)
                             {
                                 Label label = labels[i];
-                                Design.ChangeTheme.LabelColorChange(1, ref label);
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.White);
                             }
                         }
                         break;

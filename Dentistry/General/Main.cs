@@ -43,6 +43,9 @@ namespace Dentistry
 
         private void SetTheme()
         {
+            List<PanelZ.PanelZ> panelZs = new List<PanelZ.PanelZ> {pnlButtons, pnlDataGrid, pnlRegistry };
+            List<Button> buttons = new List<Button> { btn1, btn2, btn3, btn4, btn5, btn6 };
+            List<Label> labels = new List<Label> { lblDoc, lblName, lblDateTo, lblDateFrom };
             switch (Properties.Settings.Default.Theme)
             {
                 case 0:
@@ -50,27 +53,21 @@ namespace Dentistry
                         if (this.BackColor != Color.Black)
                         {
                             this.BackColor = Color.Black;
-                            pnlRegistry.EndColor = Color.Black;
-                            pnlButtons.EndColor = Color.Black;
-                            pnlButtons.StartColor = Color.Black;
-                            pnlDataGrid.EndColor = Color.Black;
-                            pnlDataGrid.StartColor = Color.Black;
-                            btn1.EndColor = Color.Black;
-                            btn2.EndColor = Color.Black;
-                            btn3.EndColor = Color.Black;
-                            btn4.EndColor = Color.Black;
-                            btn5.EndColor = Color.Black;
-                            btn6.EndColor = Color.Black;
-                            btn1.StartColor = Color.White;
-                            btn2.StartColor = Color.White;
-                            btn3.StartColor = Color.White;
-                            btn4.StartColor = Color.White;
-                            btn5.StartColor = Color.White;
-                            btn6.StartColor = Color.White;
-                            lblName.ForeColor = Color.White;
-                            lblDoc.ForeColor = Color.White;
-                            lblDateFrom.ForeColor = Color.White;
-                            lblDateTo.ForeColor = Color.White;
+                            for (int i = 0; i < labels.Count;i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.White);
+                            }
+                            for (int i = 0; i < buttons.Count;i++)
+                            {
+                                Button button = buttons[i];
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.Black);
+                            }
+                            for (int i = 0; i < panelZs.Count;i++)
+                            {
+                                PanelZ.PanelZ panel = panelZs[i];
+                                Design.ChangeTheme.PanelToChange(ref panel, Color.Black, Color.Black);
+                            }
                         }
 
                         break;
@@ -79,28 +76,22 @@ namespace Dentistry
                     {
                         if (this.BackColor != Color.CornflowerBlue)
                         {
+                            for (int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
+                            }
+                            for (int i = 0; i < buttons.Count; i++)
+                            {
+                                Button button = buttons[i];
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.CornflowerBlue);
+                            }
+                            for (int i = 0; i < panelZs.Count; i++)
+                            {
+                                PanelZ.PanelZ panel = panelZs[i];
+                                Design.ChangeTheme.PanelToChange(ref panel, Color.CornflowerBlue, Color.CornflowerBlue);
+                            }
                             this.BackColor = Color.CornflowerBlue;
-                            pnlRegistry.EndColor = Color.CornflowerBlue;
-                            pnlButtons.EndColor = Color.CornflowerBlue;
-                            pnlButtons.StartColor = Color.CornflowerBlue;
-                            pnlDataGrid.EndColor = Color.CornflowerBlue;
-                            pnlDataGrid.StartColor = Color.CornflowerBlue;
-                            btn1.EndColor = Color.CornflowerBlue;
-                            btn2.EndColor = Color.CornflowerBlue;
-                            btn3.EndColor = Color.CornflowerBlue;
-                            btn4.EndColor = Color.CornflowerBlue;
-                            btn5.EndColor = Color.CornflowerBlue;
-                            btn6.EndColor = Color.CornflowerBlue;
-                            btn1.StartColor = Color.White;
-                            btn2.StartColor = Color.White;
-                            btn3.StartColor = Color.White;
-                            btn4.StartColor = Color.White;
-                            btn5.StartColor = Color.White;
-                            btn6.StartColor = Color.White;
-                            lblName.ForeColor = Color.Black;
-                            lblDoc.ForeColor = Color.Black;
-                            lblDateFrom.ForeColor = Color.Black;
-                            lblDateTo.ForeColor = Color.Black;
                         }
                         break;
                     }
@@ -108,28 +99,23 @@ namespace Dentistry
                     {
                         if (this.BackColor != Color.LightGray)
                         {
+                            for (int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
+                            }
+                            for (int i = 0; i < buttons.Count; i++)
+                            {
+                                Button button = buttons[i];
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.DarkGray);
+                            }
+                            for (int i = 0; i < panelZs.Count; i++)
+                            {
+                                PanelZ.PanelZ panel = panelZs[i];
+                                Design.ChangeTheme.PanelToChange(ref panel, Color.DarkGray, Color.LightGray);
+                            }
+                            this.BackColor = Color.CornflowerBlue;
                             this.BackColor = Color.LightGray;
-                            pnlRegistry.EndColor = Color.DarkGray;
-                            pnlButtons.EndColor = Color.LightGray;
-                            pnlButtons.StartColor = Color.LightGray;
-                            pnlDataGrid.EndColor = Color.LightGray;
-                            pnlDataGrid.StartColor = Color.LightGray;
-                            btn1.EndColor = Color.DarkGray;
-                            btn2.EndColor = Color.DarkGray;
-                            btn3.EndColor = Color.DarkGray;
-                            btn4.EndColor = Color.DarkGray;
-                            btn5.EndColor = Color.DarkGray;
-                            btn6.EndColor = Color.DarkGray;
-                            btn1.StartColor = Color.White;
-                            btn2.StartColor = Color.White;
-                            btn3.StartColor = Color.White;
-                            btn4.StartColor = Color.White;
-                            btn5.StartColor = Color.White;
-                            btn6.StartColor = Color.White;
-                            lblName.ForeColor = Color.Black;
-                            lblDoc.ForeColor = Color.Black;
-                            lblDateFrom.ForeColor = Color.Black;
-                            lblDateTo.ForeColor = Color.Black;
                         }
 
                         break;
@@ -139,27 +125,21 @@ namespace Dentistry
                         if (this.BackColor != Color.CornflowerBlue)
                         {
                             this.BackColor = Color.CornflowerBlue;
-                            pnlRegistry.EndColor = Color.CornflowerBlue;
-                            pnlButtons.EndColor = Color.CornflowerBlue;
-                            pnlButtons.StartColor = Color.CornflowerBlue;
-                            pnlDataGrid.EndColor = Color.CornflowerBlue;
-                            pnlDataGrid.StartColor = Color.CornflowerBlue;
-                            btn1.EndColor = Color.CornflowerBlue;
-                            btn2.EndColor = Color.CornflowerBlue;
-                            btn3.EndColor = Color.CornflowerBlue;
-                            btn4.EndColor = Color.CornflowerBlue;
-                            btn5.EndColor = Color.CornflowerBlue;
-                            btn6.EndColor = Color.CornflowerBlue;
-                            btn1.StartColor = Color.White;
-                            btn2.StartColor = Color.White;
-                            btn3.StartColor = Color.White;
-                            btn4.StartColor = Color.White;
-                            btn5.StartColor = Color.White;
-                            btn6.StartColor = Color.White;
-                            lblName.ForeColor = Color.Black;
-                            lblDoc.ForeColor = Color.Black;
-                            lblDateFrom.ForeColor = Color.Black;
-                            lblDateTo.ForeColor = Color.Black;
+                            for(int i = 0; i < labels.Count; i++)
+                            {
+                                Label label = labels[i];
+                                Design.ChangeTheme.LabelColorChange(ref label, Color.Black);
+                            }
+                            for (int i = 0; i < buttons.Count; i++)
+                            {
+                                Button button = buttons[i];
+                                Design.ChangeTheme.ButtonColorChange(ref button, Color.CornflowerBlue);
+                            }
+                            for (int i = 0; i < panelZs.Count; i++)
+                            {
+                                PanelZ.PanelZ panel = panelZs[i];
+                                Design.ChangeTheme.PanelToChange(ref panel, Color.CornflowerBlue, Color.CornflowerBlue);
+                            }
                         }
                         break;
                     }
