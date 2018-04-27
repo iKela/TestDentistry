@@ -110,12 +110,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Design\ChangeTheme.cs" />
-    <Compile Include="Entity\Appoinments.cs" />
-    <Compile Include="Entity\Doctors.cs" />
-    <Compile Include="Entity\MedCards.cs" />
-    <Compile Include="Entity\ModelFirs.cs" />
-    <Compile Include="Entity\Policies.cs" />
-    <Compile Include="Entity\Users.cs" />
     <Compile Include="General\Account.cs">
       <SubType>Form</SubType>
     </Compile>
