@@ -1,18 +1,15 @@
-﻿using Dentistry.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dentistry.MedCard
 {
     public partial class NewMedCard : Form
     {
+    SqlConnection testCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GoogleDrive InSoP\Stomatology\Stomatology\DataStomatology.mdf;Integrated Security=True;Connect Timeout=30");
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -156,19 +153,39 @@ namespace Dentistry.MedCard
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           using (var name = new ModelFirs())
-           {
-               var variables = new MedCards { NamePatient = txtName.Text, Gender = txtGender.Text,
-                  DateOfBirth = txtDateOfBirthday.Text, NumberPhone = txtNumber.Text, Adress=txtAddress.Text,
-                  dateOfCreatingMC = dtpDateOfCreating.Text, Diagnosis= txtDiagnosis.Text,
-                  Complaint =txtComplaints.Text,DoneDiseases= txtDoneDiseases.Text, CurrentDiseas= txtCurrentDisease.Text,
-                  SurvayData= txtSurvayData.Text, Bite= txtBite.Text, MouthState= txtMouthState.Text,
-                  XReyDate= txtXReyData.Text,ColorVita= txtColorVita.Text, DateOfLessons= txtDateOfLessons.Text,
-                  ControlDate= txtControlDate.Text, SurvayPlan= txtSurvayPlan.Text,  TreatmentPlan= txtTreatmentPlan.Text
-               };
-               name.MedCards.Add(variables);
-               name.SaveChanges();
-           }            
+            try
+            {
+                if (txtName.Text.Length == 0 || txtNumber.Text.Length == 0 || txtAddress.Text.Length == 0 || txtDateOfBirthday.Text.Length == 0)
+                    throw new Exception("Не всі поля заповнені!");
+                else
+                {
+
+                    testCon.Open();
+                    SqlCommand cmd = testCon.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = $"INSERT INTO MedCard ( Name, State, Birthday, Number, Adress, DateMC, Diagnos, Scarg, PereneseniTaSuputniZahvor, " +
+                        $"RozvutokTeperishnogoZahvor, DaniObjektDoslidjennya, Prikus, StanGigiyenuRota, xRayData, ColorVita, DateOfLessons, ControlDate, " +
+                        $"SurvayPlan, TreatmentPlan) " +
+                        $"values ( N'{txtName.Text}',  N'{txtGender.Text}', N'{txtDateOfBirthday.Text}', " +
+                        $" N'{txtNumber.Text}', N'{txtAddress.Text}',  N'{dtpDateOfCreating.Value.Date.ToString("dd/MM/yyyy")}', N'{txtDiagnosis.Text}', N'{txtComplaints.Text}', N'{txtDoneDiseases.Text}', N'{txtCurrentDisease.Text}', " +
+                        $" N'{txtSurvayData.Text}', N'{txtBite.Text}', N'{txtMouthState.Text}', N'{txtXReyData.Text}', N'{txtDateOfLessons.Text}', N'{txtControlDate.Text}', " +
+                        $" N'{txtSurvayData.Text}', N'{txtSurvayPlan.Text}', N'{txtTreatmentPlan.Text}')";
+                    cmd.ExecuteNonQuery();
+
+
+                    MessageBox.Show("Додано нового паціента.");
+
+
+                    testCon.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Помилка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                testCon.Close();
+            }
+
             SaveToWordFile();
             MessageBox.Show("Виконано!");
         }       
