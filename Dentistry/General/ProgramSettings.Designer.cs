@@ -56,6 +56,8 @@
             this.gboxAppearance = new System.Windows.Forms.GroupBox();
             this.cmbThemes = new System.Windows.Forms.ComboBox();
             this.lblTheme = new System.Windows.Forms.Label();
+            this.AddDoctor = new System.Windows.Forms.Button();
+            this.EditDoctor = new System.Windows.Forms.Button();
             this.panelZ3.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.panelZ1.SuspendLayout();
@@ -489,6 +491,8 @@
             // pnlGeneral
             // 
             this.pnlGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGeneral.Controls.Add(this.EditDoctor);
+            this.pnlGeneral.Controls.Add(this.AddDoctor);
             this.pnlGeneral.Controls.Add(this.gboxAppearance);
             this.pnlGeneral.EndColor = System.Drawing.Color.Black;
             this.pnlGeneral.GradientAngle = 90;
@@ -534,6 +538,25 @@
             this.lblTheme.Size = new System.Drawing.Size(44, 19);
             this.lblTheme.TabIndex = 0;
             this.lblTheme.Text = "Тема:";
+            // 
+            // AddDoctor
+            // 
+            this.AddDoctor.Location = new System.Drawing.Point(13, 105);
+            this.AddDoctor.Name = "AddDoctor";
+            this.AddDoctor.Size = new System.Drawing.Size(182, 45);
+            this.AddDoctor.TabIndex = 1;
+            this.AddDoctor.Text = "Додати лікаря";
+            this.AddDoctor.UseVisualStyleBackColor = true;
+            this.AddDoctor.Click += new System.EventHandler(this.AddDoctor_Click);
+            // 
+            // EditDoctor
+            // 
+            this.EditDoctor.Location = new System.Drawing.Point(15, 153);
+            this.EditDoctor.Name = "EditDoctor";
+            this.EditDoctor.Size = new System.Drawing.Size(182, 45);
+            this.EditDoctor.TabIndex = 2;
+            this.EditDoctor.Text = "Редагувати інформацію про лікаря";
+            this.EditDoctor.UseVisualStyleBackColor = true;
             // 
             // ProgramSettings
             // 
@@ -595,5 +618,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private PanelZ.PanelZ panelZ1;
         private PanelZ.PanelZ pnlPaths;
+        private System.Windows.Forms.Button EditDoctor;
+        private System.Windows.Forms.Button AddDoctor;
     }
 }

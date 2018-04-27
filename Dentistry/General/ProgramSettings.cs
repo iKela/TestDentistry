@@ -290,5 +290,12 @@ namespace Dentistry.General
         {
             setVisibility(1);
         }
+
+        private void AddDoctor_Click(object sender, EventArgs e)
+        {
+            AddDoctor newForm = new AddDoctor();
+            newForm.Show();
+            this.Hide();
+        }
     }
 }
